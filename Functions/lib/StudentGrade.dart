@@ -25,28 +25,32 @@ if(mark>100 || mark<0){
 
 
 main(){
-String name=StudentName();
+String answer = "";
+do {
+  String name = StudentName();
 
-List<int> grades = GetGrade();
+  List<int> grades = GetGrade();
 
-int TotalGrade=0;
-for(int i=0;i<grades.length;i++){
-  TotalGrade+=grades[i];
-}
-double Average=TotalGrade/grades.length;
-double Percentage=(TotalGrade/500)*100;
-print("---------------------------------------------------");
-print("Name : $name ");
-print("Total Grade : $TotalGrade");
-print("Average : ${Average.toStringAsFixed(2)}");
-print("Percentage : $Percentage%");
+  int TotalGrade = 0;
+  for (int i = 0; i < grades.length; i++) {
+    TotalGrade += grades[i];
+  }
+  double Average = TotalGrade / grades.length;
+  double Percentage = (TotalGrade / 500) * 100;
+  print("---------------------------------------------------");
+  print("Name : $name ");
+  print("Total Grade : $TotalGrade");
+  print("Average : ${Average.toStringAsFixed(2)}");
+  print("Percentage : $Percentage%");
 
-if(Percentage>=50){
-  print("Student statues: passed :) ");
-}
-else{
-  print("Student statues: failed :( ");
-}
-
+  if (Percentage >= 50) {
+    print("Student statues: passed :) ");
+  }
+  else {
+    print("Student statues: failed :( ");
+  }
+  stdout.write("Do you want to calculate again? (yes / no): ");
+  answer = stdin.readLineSync()!.toLowerCase();
+}while(answer=="yes");
 
 }
